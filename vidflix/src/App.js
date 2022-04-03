@@ -4,6 +4,11 @@ function App() {
   return (
     <div>
    <Jumbotron.Container>
+   {jumbodata.map((item)=>(
+     <Jumbotron key={item.id} direction={item.direction}>
+       <p>{item.title}</p>
+     </Jumbotron>
+   ))}
    </Jumbotron.Container>
    </div>
   );

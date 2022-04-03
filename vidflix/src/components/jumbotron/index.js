@@ -1,11 +1,15 @@
 import React from "react";
-import { Inner } from "./styles/jumbotron";
+import { Container,Inner } from "./styles/jumbotron";
 
- function Jumbotron({direction='row', ...restProps}){
+ function Jumbotron({children ,direction='row', ...restProps}){
  return (<Inner direction={direction}>
- <p> Jumbotron page</p>
+ <p> {children}</p>
  </Inner>
  );
+}
+
+Jumbotron.Container= function JumbotronContainer({children,...restProps}){
+    return <Container {...restProps}>{children}</Container>
 }
 
 export default Jumbotron;
