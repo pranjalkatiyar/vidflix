@@ -1,7 +1,11 @@
 import React from "react";
+import { Inner } from "./styles/jumbotron";
 
- function Jumbotron({}){
- return (<p> Jumbotron page</p>);
+ function Jumbotron({direction='row', ...restProps}){
+ return (<Inner direction={direction}>
+ <p> Jumbotron page</p>
+ </Inner>
+ );
 }
 
 export default Jumbotron;
