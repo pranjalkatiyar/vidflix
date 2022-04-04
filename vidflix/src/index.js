@@ -1,7 +1,14 @@
 import ReactDOM from 'react-dom';
 import App from './app';
+import {GlobalStyles} from './globalStyles';
+import 'normalize.css';
 
-ReactDOM.render(<App/>,
+//JSx fragment is used
+
+ReactDOM.render(<>
+<GlobalStyles/>
+<App/>
+</>,
     document.getElementById('root')
 );
 

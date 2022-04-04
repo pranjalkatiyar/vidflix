@@ -1,17 +1,11 @@
-import Jumbotron from './components/jumbotron/index'
-import jumbodata from './fixtures/jumbo.json';
-function App() {
+import React from 'react'
+import {JumbotronContainer} from './containers/jumbotron'
+
+const App = () => {
   return (
-    <div>
-   <Jumbotron.Container>
-   {jumbodata.map((item)=>(
-     <Jumbotron key={item.id} direction={item.direction}>
-       <p>{item.title}</p>
-     </Jumbotron>
-   ))}
-   </Jumbotron.Container>
-   </div>
-  );
+  <JumbotronContainer/>
+  )
 }
+
 
 export default App;
