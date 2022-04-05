@@ -1,6 +1,6 @@
 import {Jumbotron} from '../components'
 import jumbodata from '../fixtures/jumbo.json';
-function JumbotronContainer() {
+export function JumbotronContainer() {
   return (
    <Jumbotron.Container>
    {jumbodata.map((item)=>(
@@ -14,8 +14,8 @@ function JumbotronContainer() {
        </Jumbotron.Pane>
      </Jumbotron>
    ))}
+   
    </Jumbotron.Container>
   );
 }
 
-export default JumbotronContainer;
