@@ -22,7 +22,7 @@ export const Title = styled.h1`
   line-height: 1.1;
   margin-top: 0;
   margin-bottom: 8px;
-  color: white;
+  color: black;
   text-align: center;
   @media (max-width: 600px) {
     font-size: 35px;

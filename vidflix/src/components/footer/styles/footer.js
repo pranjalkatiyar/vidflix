@@ -27,7 +27,8 @@ export const Row = styled.div`
 `;
 
 export const Link = styled.a`
-  color: #757575;
+  /* color: #757575; */
+  color:black;
   margin-bottom: 20px;
   font-size: 13px;
   text-decoration: none;
