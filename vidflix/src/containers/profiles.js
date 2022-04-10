@@ -13,7 +13,7 @@ export function SelectProfileContainer({user,setProfile}){
                 </Header.Frame>
             </Header>
             <Profiles>
-                <Profiles.Title>Who's Watvhing?</Profiles.Title>
+                <Profiles.Title>Who's Watching?</Profiles.Title>
                 <Profiles.List>
                     <Profiles.User onClick={() => setProfile({displayName: user.displayName, photoURL: user.photoURL})}>
                         <Profiles.Picture src={user.photoURL}/>
