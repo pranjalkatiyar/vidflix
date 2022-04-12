@@ -1,5 +1,5 @@
 import {Jumbotron} from '../components'
-import jumbodata from '../fixtures/jumbo.json';
+import jumbodata from '../lib/fixtures/jumbo';
 export function JumbotronContainer() {
   return (
    <Jumbotron.Container>
