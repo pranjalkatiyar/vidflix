@@ -20,7 +20,7 @@ export default function SignUp(){
 
   const handleSignup=(event)=>{
     event.preventDefault();
-    firebase
+    return firebase
     .auth()
     .createUserWithEmailAndPassword(emailAddress, password)
     .then((result) =>
@@ -30,7 +30,7 @@ export default function SignUp(){
           photoURL: 1,
         })
         .then(() => {
-          history.push(ROUTES.BROWSE);
+          history(ROUTES.BROWSE);
         })
     )
     .catch((error) => {

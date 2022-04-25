@@ -4,10 +4,9 @@ import {Link as ReachRouterLink} from "react-router-dom";
 export const Background = styled.div`
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), 
-  url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')})
-   top left / cover
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover
     no-repeat;
+   
   @media (max-width: 1100px) {
     ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
   }
@@ -169,14 +168,17 @@ export const Feature = styled(Container)`
   padding: 150px 0 500px 0;
   flex-direction: column;
   align-items: normal;
-  width: 50%;
+  width: 100%;
+  height: 20px;
+
   @media (max-width: 1100px) {
-    display: none;
+    width: 100%;
+    padding: 100px 0;
   }
 `;
 
 export const FeatureCallOut = styled.h2`
-  color: white;
+  color: black;
   font-size: 50px;
   line-height: normal;
   font-weight: bold;
@@ -189,6 +191,7 @@ export const Text = styled.p`
   font-size: 22px;
   line-height: normal;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  margin: 0;
 `;
 
 export const Logo = styled.img`

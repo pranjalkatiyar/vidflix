@@ -24,9 +24,7 @@ export default function Header({ bg = true, children, ...restProps }) {
     <Background data-testid="header-bg" {...restProps}>
       {children}
     </Background>
-  ) : (
-    children
-  );
+  ) : (children);
 }
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
@@ -69,7 +67,7 @@ Header.Profile = function HeaderProfile({ children, ...restProps }) {
 };
 
 Header.Feature = function HeaderFeature({ children, ...restProps }) {
-  return <Feature>{children}</Feature>;
+  return <Feature {...restProps}>{children}</Feature>;
 };
 
 Header.Picture = function HeaderPicture({ src, ...restProps }) {

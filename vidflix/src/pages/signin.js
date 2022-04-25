@@ -18,7 +18,7 @@ const isInValid = password=='' || emailAddress=='';
 
 const handleSignin=(event)=>{
   event.preventDefault();
-  console.log(emailAddress,password);
+ 
 
   firebase
   .auth()
