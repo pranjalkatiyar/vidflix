@@ -7,12 +7,12 @@ export default function App(){
   console.log(user); 
 }
 
-const App = () => {
-  return (
-  <JumbotronContainer/>
+// const App = () => {
+//   return (
+//   <JumbotronContainer/>
 
-  )
-}
+//   )
+// }
 
 
 //export default App; 
