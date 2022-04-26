@@ -3,6 +3,7 @@ import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
 import axios from "../axios";
 import "./row.css";
+import Fuse from 'fuse.js';
 
  const base_url="https://image.tmdb.org/t/p/original";
 
@@ -15,17 +16,20 @@ function Row({
   const [movies, setMovies] = useState([]);
   const [trailerUrl, settrailerUrl] = useState("");
 
+
   useEffect(() => {
     async function fetchData() {
       //https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213
       const request = await axios.get(fetchUrl);
       setMovies(request.data.results);
-      console.log(request.data.results);
       return request;
     }
     fetchData();
   }, [fetchUrl]);
-
+  movies.map((movie)=>{
+    console.log(movie.original_title);
+  });
+ 
   const opts = {
     height: '390',
     width: '100%',

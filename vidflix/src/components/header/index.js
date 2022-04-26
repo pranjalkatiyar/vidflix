@@ -3,6 +3,7 @@ import {Link as ReachRouterLink} from 'react-router-dom';
 import {
   Container,
   Group,
+  Button,
   Background,
   Dropdown,
   Picture,
@@ -11,13 +12,13 @@ import {
   Profile,
   FeatureCallOut,
   SearchIcon,
-  SearchInput,
   ButtonLink,
-  PlayButton,
+  SearchInput,
   Text,
   Feature,
   Logo,
 } from './styles/header';
+import * as ROUTES from '../../constants/routes'
 
 export default function Header({ bg = true, children, ...restProps }) {
   return bg ? (
@@ -29,6 +30,10 @@ export default function Header({ bg = true, children, ...restProps }) {
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
+};
+
+Header.Button = function HeaderButton({ children, ...restProps }) {
+  return <Button {...restProps}>{children}</Button>;
 };
 
 Header.Group = function HeaderGroup({ children, ...restProps }) {
@@ -79,11 +84,7 @@ Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
 };
 
 Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
-  return <Link {...restProps}>{children}</Link>;
-};
-
-Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
-  return <PlayButton {...restProps}>{children}</PlayButton>;
+  return <Link to={ROUTES.HOME}>{children}</Link>;
 };
 
 Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }) {

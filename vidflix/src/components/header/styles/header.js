@@ -6,7 +6,6 @@ export const Background = styled.div`
   flex-direction: column;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover
     no-repeat;
-   
   @media (max-width: 1100px) {
     ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
   }
@@ -58,7 +57,7 @@ export const SearchInput = styled.input`
   opacity: ${({ active }) => (active === true ? '1' : '0')};
   width: ${({ active }) => (active === true ? '200px' : '0px')};
   &:focus {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 1);
   }
 `;
 
@@ -66,7 +65,7 @@ export const Search = styled.div`
   display: flex;
   align-items: center;
   svg {
-    color: white;
+    color: black;
     cursor: pointer;
   }
   @media (max-width: 700px) {
@@ -92,6 +91,22 @@ export const SearchIcon = styled.button`
 `;
 
 export const ButtonLink = styled(ReachRouterLink)`
+  display: block;
+  background-color: #e50914;
+  width: 84px;
+  height: fit-content;
+  color: white;
+  font-size: 15px;
+  border-radius: 3px;
+  padding: 8px 17px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    background: #f40612;
+  }
+`;
+export const Button= styled.button`
   display: block;
   background-color: #e50914;
   width: 84px;
