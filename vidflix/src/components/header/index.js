@@ -19,6 +19,7 @@ import {
   Logo,
 } from './styles/header';
 import * as ROUTES from '../../constants/routes'
+import check from "../../lib/fixtures/check.json";
 
 export default function Header({ bg = true, children, ...restProps }) {
   return bg ? (

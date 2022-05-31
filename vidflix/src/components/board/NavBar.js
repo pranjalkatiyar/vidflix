@@ -9,10 +9,8 @@ import {BrowserRouter ,Routes,Route} from 'react-router-dom';
 import { Home } from '../../pages';
 import { FooterContainer } from '../../containers/footers';
 import LogOut from "../logout/Logout"
-
-
-
-
+import check from "../../lib/fixtures/check.json";
+import Fuse from 'fuse.js'
 
 
 
@@ -23,7 +21,6 @@ function NavBar() {
 console.log(searchTerm)
     const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
-// const auth=getAuth();
 
 const navigate=useNavigate();
 
@@ -38,6 +35,10 @@ const navigate=useNavigate();
       });
     }, []);
 
+
+
+
+    //logout function
     function logout(){
       firebase.auth().signOut().then(
         function(){
@@ -50,8 +51,7 @@ const navigate=useNavigate();
       
     
     return (<>
-        <div className={`nav ${show && "nav_black"}`}>            
-        
+        <div className={`nav ${show && "nav_black"}`}>               
             <Header.Group>
                 <Header.Logo to={ROUTES.HOME} src={logo} alt="Vidflix"/>
             </Header.Group>
@@ -61,14 +61,15 @@ const navigate=useNavigate();
             <Header.Group>
             <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <Header.Profile>
-              <Header.Picture src={user.photoURL} />
+                <Header.Picture src={user.photoURL} />
               <Header.Dropdown>
                 <Header.Group>
-                  <Header.Picture src={user.photoURL} />
                   <Header.TextLink>{user.displayName}</Header.TextLink>
+                  <button>Subscribe</button>   
                 </Header.Group>
                 <Header.Group>
                 <button onClick={logout}>SignOut</button>   
+
                 </Header.Group>
               </Header.Dropdown>
             </Header.Profile>

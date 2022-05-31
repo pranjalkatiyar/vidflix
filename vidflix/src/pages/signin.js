@@ -5,6 +5,8 @@ import { FooterContainer } from '../containers/footers';
 import { HeaderContainer } from '../containers/header';
 import * as ROUTES from '../constants/routes';
 import {useNavigate} from 'react-router-dom';
+// import {getAuth,sendSignInLinkToEmail} from '../firebase/auth';
+
 
 export default function SignIn(){
   const history=useNavigate();
@@ -19,7 +21,6 @@ const isInValid = password=='' || emailAddress=='';
 const handleSignin=(event)=>{
   event.preventDefault();
  
-
   firebase
   .auth()
   .signInWithEmailAndPassword(emailAddress, password)
@@ -33,8 +34,7 @@ history(ROUTES.BROWSE);
   })
 
 }
-
-  return (
+return (
     <>
     <HeaderContainer>
     <Form>
@@ -66,8 +66,11 @@ history(ROUTES.BROWSE);
       <Form.TextSmall>
       This page is protected by Google reCAPTCHA to ensure you're
       not a bot. Learn more.
-      </Form.TextSmall>
+      </Form.TextSmall> 
+      <Form.Link to="/forgotpassword">Forgot Password</Form.Link>
+   
     </Form>
+
     </HeaderContainer>
     <FooterContainer />
     </>

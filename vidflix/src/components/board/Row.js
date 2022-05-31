@@ -11,7 +11,7 @@ import Fuse from 'fuse.js';
 function Row({
   title,
   fetchUrl,
-  isLargeRow
+  isLargeRow,
 }) {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, settrailerUrl] = useState("");
@@ -26,6 +26,8 @@ function Row({
     }
     fetchData();
   }, [fetchUrl]);
+  
+  
   movies.map((movie)=>{
     console.log(movie.original_title);
   });

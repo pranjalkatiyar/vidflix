@@ -9,7 +9,7 @@ export function HeaderContainer({children}){
             <Header.Frame>
                 <Header.Logo to="/" alt="Vidflix" src={logo}/>
                 <Header.ButtonLink to={ROUTES.SIGN_IN}>
-                SignIn
+                SignIn/SignOut
                 </Header.ButtonLink>               
             </Header.Frame>
             {children}
