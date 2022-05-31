@@ -5,7 +5,9 @@ import { FooterContainer } from '../containers/footers';
 import { HeaderContainer } from '../containers/header';
 import * as ROUTES from '../constants/routes';
 import {useNavigate} from 'react-router-dom';
-// import {getAuth,sendSignInLinkToEmail} from '../firebase/auth';
+import {AiFillGoogleCircle} from 'react-icons/ai';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 
 
 export default function SignIn(){
@@ -34,6 +36,31 @@ history(ROUTES.BROWSE);
   })
 
 }
+
+//google authentication login
+const provider = new GoogleAuthProvider();
+const auth=getAuth();
+auth.languageCode="it";
+const signInwithGoogle=()=>{
+  signInWithPopup(auth,provider)
+  .then((result)=>{
+    const credentials=GoogleAuthProvider.credentialFromResult(result);
+    console.log("crendentials",credentials);
+    const user=result.user;
+    console.log("username",user.displayName);
+    console.log("emailAddress",user.emailAddress);
+  }).then(() => {
+        history(ROUTES.BROWSE);
+      })
+  .catch((error)=>{
+    console.log(error.code);
+    console.log(error.message);
+    console.log(error.customData.email);
+    console.log(GoogleAuthProvider.credentialFromError(error));
+  });
+}
+
+
 return (
     <>
     <HeaderContainer>
@@ -59,6 +86,15 @@ return (
       <Form.Submit type="submit" disabled={isInValid}>Sign In
       </Form.Submit>
       </Form.Base>
+
+
+{/* google authentication button */}
+
+      <div className='login-buttons' style={{textAlign:"center"}} >
+       <Form.Text > Or </Form.Text>
+        <AiFillGoogleCircle style={{color: "red", fontSize:"50px"}} onClick={signInwithGoogle}  />
+          </div>
+
 
       <Form.Text>
         New to Vidflix ? <Form.Link to="/signup">Sign Up</Form.Link>

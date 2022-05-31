@@ -5,7 +5,8 @@ import { useNavigate  } from 'react-router-dom';
 import { FirebaseContext } from '../context/firebase';
 import { FooterContainer } from '../containers/footers';
 import * as ROUTES from '../constants/routes';
-
+import {AiFillGoogleCircle} from 'react-icons/ai';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export default function SignUp(){
 
@@ -23,15 +24,23 @@ export default function SignUp(){
     return firebase
     .auth()
     .createUserWithEmailAndPassword(emailAddress, password)
-    .then((result) =>
-      result.user
-        .updateProfile({
-          displayName: firstName,
-          photoURL: 1,
-        })
-        .then(() => {
-          history(ROUTES.BROWSE);
-        })
+    .then((result) =>{
+      result.user.sendEmailVerification()
+      .then(()=>{
+         firebase.auth().signOut();
+      history(ROUTES.SIGN_IN);
+      alert("Email sent");
+      });
+     
+      // result.user
+      //   .updateProfile({
+      //     displayName: firstName,
+      //     photoURL: 1,
+      //   })
+      //   .then(() => {
+      //     history(ROUTES.BROWSE);
+      //   })
+      }
     )
     .catch((error) => {
       setFirstName('');
@@ -40,6 +49,32 @@ export default function SignUp(){
       setError(error.message);
     });
     } ;
+
+//using google authentication firebase
+
+const provider = new GoogleAuthProvider();
+const auth=getAuth();
+auth.languageCode="it";
+const signInwithGoogle=()=>{
+  signInWithPopup(auth,provider)
+  .then((result)=>{
+    const credentials=GoogleAuthProvider.credentialFromResult(result);
+    console.log("crendentials",credentials);
+    const user=result.user;
+    console.log("username",user.displayName);
+    console.log("emailAddress",user.emailAddress);
+  }).then(() => {
+        history(ROUTES.BROWSE);
+      })
+  .catch((error)=>{
+    console.log(error.code);
+    console.log(error.message);
+    console.log(error.customData.email);
+    console.log(GoogleAuthProvider.credentialFromError(error));
+  });
+}
+
+
   return (
    <>
      <HeaderContainer>
@@ -64,12 +99,19 @@ export default function SignUp(){
               placeholder="Password"
               onChange={({ target }) => setPassword(target.value)}
             />
-
             <Form.Submit disabled={isInValid} type="submit" data-testid="sign-up">
               Sign Up
             </Form.Submit>
         
        </Form.Base>
+
+       {/* google authentication button */}
+       
+       <div className='login-buttons' style={{textAlign:"center"}} >
+       <Form.Text > Or </Form.Text>
+        <AiFillGoogleCircle style={{color: "red", fontSize:"50px"}} onClick={signInwithGoogle}  />
+          </div>
+
 
        <Form.Text>
             Already a user? <Form.Link to="/signin">Sign in.</Form.Link>
