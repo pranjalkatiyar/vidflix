@@ -16,3 +16,33 @@
 .nav_black{
     background-color: #111;
 }
+
+.menu{
+    color:black;
+    font-size: 30px;
+}
+
+.menuWhite{
+    color:white;
+    font-size: 30px;
+}
+
+.menuDropDown{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.menuButton{
+    border: 0;
+    background: transparent;
+    color: white;
+}
+
+.menuButton:hover{
+    background-color: aqua;
+    color: black;
+    cursor: pointer;
+}

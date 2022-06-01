@@ -11,6 +11,7 @@ import { FooterContainer } from '../../containers/footers';
 import LogOut from "../logout/Logout"
 import check from "../../lib/fixtures/check.json";
 import Fuse from 'fuse.js'
+import {AiOutlineMenu} from 'react-icons/ai';
 
 
 
@@ -61,15 +62,14 @@ const navigate=useNavigate();
             <Header.Group>
             <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <Header.Profile>
-                <Header.Picture src={user.photoURL} />
-              <Header.Dropdown>
+               <AiOutlineMenu className={`menu ${show && "menuWhite"}`} />
+              <Header.Dropdown className="menuDropDown">
+              <Header.TextLink>{user.displayName}</Header.TextLink>
                 <Header.Group>
-                  <Header.TextLink>{user.displayName}</Header.TextLink>
-                  <button>Subscribe</button>   
+                  <button className='menuButton'>Subscribe</button>   
                 </Header.Group>
                 <Header.Group>
-                <button onClick={logout}>SignOut</button>   
-
+                <button onClick={logout} class="menuButton">Sign Out</button>   
                 </Header.Group>
               </Header.Dropdown>
             </Header.Profile>
