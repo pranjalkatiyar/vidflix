@@ -1,5 +1,6 @@
 # **Vidflix**
->Checkout branch "React-View" for frontend only Vidflix with React 
+>Checkout branch "React-View" for frontend only Vidflix with React
+>New deployment link-[Click here](https://vidflix-vidflix-xw2z.vercel.app/)
 
 ## **Quick Links**
 
