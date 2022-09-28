@@ -1,5 +1,5 @@
 # **Vidflix**
->Checkout branch "React-View" for frontend only Vidflix with React Redux
+>Checkout branch "React-View" for frontend only Vidflix with React 
 
 ## **Quick Links**
 
