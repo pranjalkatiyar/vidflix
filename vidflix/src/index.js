@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import App from './app';
+import App from './App';
 import {GlobalStyles} from './globalStyles';
 import 'normalize.css';
 import { firebase } from './lib/firebase.prod';
